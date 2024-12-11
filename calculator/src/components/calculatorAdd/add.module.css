@@ -1,0 +1,16 @@
+.add {
+  padding: 15px;
+  gap: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: absolute;
+  border-radius: 39px;
+  width: 270px;
+  height: 270px;
+  background-color: #17181a;
+  transition: transform 0.3s ease-in-out;
+}
+.show {
+  transform: translateX(-100%);
+}

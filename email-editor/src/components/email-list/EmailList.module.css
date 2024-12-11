@@ -1,0 +1,23 @@
+.list {
+  margin-top: 1.5rem;
+}
+
+.div {
+  background-color: rgb(0, 0, 0, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.delete__button {
+  top: 5px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  padding-top: 5px;
+  position: absolute;
+}

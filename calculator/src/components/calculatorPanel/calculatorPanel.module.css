@@ -1,0 +1,56 @@
+.calculator__panel {
+  display: flex;
+  flex-direction: column;
+}
+.calculator__top {
+  display: flex;
+  margin: 16px 33px 22px 10px;
+  gap: 10px;
+}
+.clear__btm,
+.del__btm {
+  background: #616161;
+  color: #a5a5a5;
+}
+.multip__btm,
+.divide__btm,
+.minus__btm,
+.plus__btm {
+  background: #005db2;
+}
+.plus__btm {
+  margin-top: 8px;
+  height: 96px;
+}
+.equal__btm {
+  background: #1991ff;
+  border-radius: 12px;
+  height: 96px;
+  color: #b2daff;
+  margin-top: 10px;
+}
+.zero__btm {
+  margin-top: 13px;
+  width: 144px;
+  height: 60px;
+}
+.point__btm {
+  margin-top: 10px;
+}
+.calculator__bottom {
+  display: flex;
+  margin-left: 33px;
+  margin-right: 33px;
+  margin-bottom: 42px;
+}
+.numbers {
+  gap: 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.math {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
