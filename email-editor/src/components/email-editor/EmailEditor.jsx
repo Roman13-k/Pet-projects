@@ -6,9 +6,7 @@ import { emailService } from "../../services/email.service";
 
 export function EmailEditor() {
   const [content, setContent] = useState(` <div> Enter email... </div> `);
-
   const editorRef = useRef(null);
-
   const queryClient = useQueryClient();
 
   const { mutate, isPending } = useMutation({
@@ -59,6 +57,11 @@ export function EmailEditor() {
     <div>
       <h1>Email editor</h1>
       <div className={styles.card}>
+        <input
+          className={styles.input}
+          type='email'
+          placeholder='example@gmail.com'
+        />
         <div
           ref={editorRef}
           className={styles.editor}

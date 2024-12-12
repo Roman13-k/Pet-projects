@@ -1,16 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./calculator.module.css";
-import { Add } from "./calculatorAdd/calculatorAdd";
+import Add from "./calculatorAdd/calculatorAdd";
 import { useLogic } from "../hooks/useLogic";
-import { Panel } from "./calculatorPanel/calculatorPanel";
+import Panel from "./calculatorPanel/calculatorPanel";
 
 function Calculator() {
   const [rez, setRez] = useState("");
   const rezRef = useRef(null);
   const [input, setInput] = useState("");
   const [isAddVisible, setIsAddVisible] = useState(false);
-  const { clickButton, allClearButton, deleteButton, calculate, toggleAdd } =
-    useLogic(rez, setRez, setInput, setIsAddVisible);
+  const {
+    clickButton,
+    clickMathButton,
+    allClearButton,
+    deleteButton,
+    calculate,
+    toggleAdd,
+  } = useLogic(rez, setRez, setInput, setIsAddVisible);
 
   useEffect(() => {
     if (rezRef.current) {
@@ -20,7 +26,10 @@ function Calculator() {
 
   return (
     <div className={styles.container}>
-      <Add isAddVisible={isAddVisible} clickButton={clickButton}></Add>
+      <Add
+        isAddVisible={isAddVisible}
+        clickButton={clickButton}
+        clickMathButton={clickMathButton}></Add>
       <div className={styles.calculator}>
         <div className={styles.calculator__rezult}>
           <input

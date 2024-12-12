@@ -48,3 +48,18 @@ button:focus-visible {
 .read-the-docs {
   color: #888;
 }
+.input {
+  color: black;
+  font-size: 20px;
+  min-width: 300px;
+  margin: 24px;
+  margin-bottom: 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.input::placeholder {
+  color: black;
+  font-size: 20px;
+}

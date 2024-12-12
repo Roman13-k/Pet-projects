@@ -38,4 +38,8 @@ button {
   cursor: pointer;
   width: 62px;
   height: 60px;
+  transition: transform 0.2s ease;
+}
+button:active {
+  transform: translateY(3px);
 }

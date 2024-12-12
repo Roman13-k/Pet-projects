@@ -1,7 +1,8 @@
 import { Delete, ArrowBigLeft } from "lucide-react";
+import { memo } from "react";
 import styles from "./calculatorPanel.module.css";
 
-export function Panel({
+const Panel = memo(function Panel({
   toggleAdd,
   allClearButton,
   deleteButton,
@@ -59,4 +60,5 @@ export function Panel({
       </div>
     </div>
   );
-}
+});
+export default Panel;
