@@ -1,4 +1,3 @@
-import { Pi } from "lucide-react";
 import { useMemo } from "react";
 
 export function useLogic(rez, setRez, setInput, setIsAddVisible) {
