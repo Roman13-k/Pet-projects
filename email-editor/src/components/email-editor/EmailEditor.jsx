@@ -6,6 +6,7 @@ import { emailService } from "../../services/email.service";
 
 export function EmailEditor() {
   const [content, setContent] = useState(` <div> Enter email... </div> `);
+  const [email, setEmail] = useState("");
   const editorRef = useRef(null);
   const queryClient = useQueryClient();
 
@@ -14,6 +15,7 @@ export function EmailEditor() {
     mutationFn: (emailContent) => emailService.sendEmails(emailContent),
     onSuccess() {
       setContent("");
+      setEmail("");
       queryClient.refetchQueries({ queryKey: ["email list"] });
     },
   });
@@ -49,8 +51,11 @@ export function EmailEditor() {
   }, [content]);
 
   const handleSendEmail = () => {
-    setContent(editorRef.current.innerHTML);
-    mutate(editorRef.current.innerHTML);
+    const emailContent = editorRef.current.innerHTML;
+    mutate({
+      text: emailContent,
+      email: email,
+    });
   };
 
   return (
@@ -61,6 +66,8 @@ export function EmailEditor() {
           className={styles.input}
           type='email'
           placeholder='example@gmail.com'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <div
           ref={editorRef}

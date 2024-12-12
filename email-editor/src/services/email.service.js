@@ -8,9 +8,13 @@ class EmailService {
     return data;
   }
 
-  async sendEmails(text) {
-    const { data } = await axios.post(this.URL, { text });
+  async sendEmails(email) {
+    const { data } = await axios.post(this.URL, email);
     return data;
+  }
+
+  async deleteEmail(id) {
+    await axios.delete(`http://localhost:3000/emails/${id}`);
   }
 }
 
