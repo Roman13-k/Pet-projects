@@ -60,6 +60,16 @@ button:focus-visible {
 }
 
 .input::placeholder {
-  color: black;
   font-size: 20px;
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+  color: red;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
 }

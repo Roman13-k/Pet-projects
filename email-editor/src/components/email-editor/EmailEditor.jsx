@@ -7,6 +7,7 @@ import { emailService } from "../../services/email.service";
 export function EmailEditor() {
   const [content, setContent] = useState(` <div> Enter email... </div> `);
   const [email, setEmail] = useState("");
+  const [err, setErr] = useState("");
   const editorRef = useRef(null);
   const queryClient = useQueryClient();
 
@@ -50,25 +51,42 @@ export function EmailEditor() {
     }
   }, [content]);
 
+  const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,}$/;
   const handleSendEmail = () => {
-    const emailContent = editorRef.current.innerHTML;
-    mutate({
-      text: emailContent,
-      email: email,
-    });
+    if (!emailRegex.test(email)) {
+      setErr("Error email!");
+    } else {
+      const emailContent = editorRef.current.innerHTML;
+      const dateTime = new Date().toString().slice(4, 21);
+
+      mutate({
+        text: emailContent,
+        email: email,
+        date: dateTime,
+      });
+    }
   };
+
+  if (err) {
+    setTimeout(() => {
+      setErr("");
+    }, 3000);
+  }
 
   return (
     <div>
       <h1>Email editor</h1>
       <div className={styles.card}>
-        <input
-          className={styles.input}
-          type='email'
-          placeholder='example@gmail.com'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <form className={styles.form}>
+          <input
+            className={styles.input}
+            type='email'
+            placeholder='example@gmail.com'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <p>{err}</p>
+        </form>
         <div
           ref={editorRef}
           className={styles.editor}
