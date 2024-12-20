@@ -1,0 +1,35 @@
+.maxtemp,
+.humadity,
+.mintemp,
+.wind,
+.cloudy {
+  position: relative;
+  margin-right: 32px;
+}
+.maxtemp::after,
+.mintemp::after,
+.humadity::after,
+.wind::after,
+.cloudy::after {
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 32px;
+  margin-left: 10px;
+}
+.maxtemp::after {
+  background-image: url("./public/icons/temp-max.svg");
+}
+.mintemp::after {
+  background-image: url("./public/icons/temp-min.svg");
+}
+
+.humadity::after {
+  background-image: url("./public/icons/humadity.svg");
+}
+.wind::after {
+  background-image: url("./public/icons/wind.svg");
+}
+.cloudy::after {
+  background-image: url("./public/icons/cloudy.svg");
+}

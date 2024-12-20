@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { WeatherDetails } from "./weatherDetails";
 import axios from "axios";
+import moment from "moment-timezone";
 import { upgradeBg } from "./upgradeBg";
+import { WeatherMain } from "./weatherMain";
 
 function App() {
   const [weatherData, setWeatherData] = useState("");
@@ -18,24 +20,25 @@ function App() {
   useEffect(() => {
     const fetchWeather = async () => {
       setIsLoading(true);
+      {
+        /*время */
+      }
       const { data } = await axios.get(
         `${weatherURL}?q=${selectedCity}&appid=${apiKey}&units=metric`,
       );
+
       setWeatherData(data);
-      {
-        /*добавить ночь и иконки */
-      }
-      const newBg = upgradeBg(data);
-      setBaground(newBg);
+      setBaground(upgradeBg(data));
+
       setIsLoading(false);
     };
     fetchWeather();
 
     const time = new Date().toLocaleTimeString().slice(0, -3) + " - ";
     const date = new Date().toLocaleDateString("en-En", {
-      weekday: "long",
+      weekday: "short",
       day: "numeric",
-      month: "long",
+      month: "short",
       year: "numeric",
     });
     setDate(time + date);
@@ -57,24 +60,23 @@ function App() {
     setSelectedCity(city.name);
     setSearchResults([]);
   };
-  {
-    /*добавить анимацию загрузки */
-  }
-  if (isLoading) return <p>Загрузка данных...</p>;
+
+  if (isLoading)
+    return (
+      <div className='flex items-center justify-center h-screen'>
+        <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500'></div>
+      </div>
+    );
 
   return (
-    <main className={`flex justify-between w-screen h-screen ${baground} `}>
-      <section className='flex flex-col justify-end mb-20 ml-28'>
-        <article className='flex flex-row gap-3'>
-          <p className='font-roboto font-normal text-10xl'>
-            {Math.round(weatherData.list[0].main.temp)}°{" "}
-          </p>
-          <div className='flex-1 flex flex-col justify-center'>
-            <h1 className='font-roboto text-6xl'> {selectedCity} </h1>{" "}
-            <p className='font-roboto text-lg'> {date} </p>{" "}
-          </div>
-        </article>
-      </section>
+    <main
+      className={`flex justify-between w-screen h-screen ${baground} bg-center`}>
+      <WeatherMain
+        weatherData={weatherData}
+        selectedCity={selectedCity}
+        date={date}
+      />
+
       <WeatherDetails
         weatherData={weatherData}
         searchResults={searchResults}
