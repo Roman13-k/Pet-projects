@@ -1,0 +1,58 @@
+.container {
+  width: 710px;
+  height: 730px;
+  position: relative;
+}
+
+.btn {
+  @apply absolute bottom-0 right-0  rounded-full p-4 mr-2 mb-8;
+  box-shadow: 0 0 5px 0 #6c63ff;
+}
+
+button {
+  background-color: #6c63ff;
+  cursor: url("./public/cursor.svg"), auto;
+}
+button:active {
+  background-color: #534cc2;
+  transform: translateY(2px);
+}
+img {
+  cursor: url("./public/cursor.svg"), auto;
+}
+
+.input {
+  border: 1px solid #6c63ff;
+  border-radius: 5px;
+  padding: 8px 16px;
+  width: 595px;
+  height: 38px;
+}
+.input:focus {
+  outline: none;
+}
+
+.select {
+  font-size: 14px;
+  line-height: 100%;
+  color: #f7f7f7;
+  background-color: #6c63ff;
+  border-radius: 5px;
+  width: 85px;
+  height: 38px;
+  cursor: url("./public/cursor.svg"), auto;
+}
+
+.select option {
+  background-color: #f7f7f7;
+  color: #6c63ff;
+  font-size: 16px;
+  line-height: 100%;
+}
+.select option:hover {
+  background-color: #6b63ff60;
+}
+.tasks {
+  @apply mt-8 ml-28 mr-28 border-2 border-red-500;
+  height: 550px;
+}
