@@ -10,8 +10,12 @@ export default {
       },
       fontFamily: {
         kanit: ["Kanit", "ui-sans-serif", "system-ui"],
+        inter: ["Inter", "ui-sans-serif", "system-ui"],
       },
       cursor: { custom: 'url("/public/cursor.svg"), auto' },
+      borderWidth: {
+        1: "1px",
+      },
     },
     plugins: [],
   },

@@ -1,0 +1,35 @@
+.container {
+  width: 750px;
+  height: 730px;
+  position: relative;
+}
+
+.input {
+  width: 595px;
+  height: 38px;
+}
+
+.select {
+  font-size: 14px;
+  line-height: 100%;
+  color: #f7f7f7;
+  background-color: #6c63ff;
+  border-radius: 5px;
+  width: 85px;
+  height: 38px;
+  cursor: url("./public/cursor.svg"), auto;
+}
+.select option {
+  background-color: #f7f7f7;
+  color: #6c63ff;
+  font-size: 16px;
+  line-height: 100%;
+}
+.select option:hover {
+  background-color: #6b63ff60;
+}
+
+.btn {
+  @apply absolute bottom-0 right-0  rounded-full p-4 mr-2 mb-8;
+  box-shadow: 0 0 5px 0 #6c63ff;
+}

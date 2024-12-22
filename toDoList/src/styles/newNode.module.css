@@ -1,0 +1,11 @@
+.newNode {
+  @apply absolute flex justify-center items-center w-screen min-h-full z-10;
+  background-color: rgba(37, 37, 37, 0.7);
+}
+.nodeContainer {
+  @apply rounded-2xl h-96 w-96 text-center flex flex-col;
+  border-radius: 16px;
+  width: 500px;
+  height: 289px;
+  background-color: #f7f7f7;
+}

@@ -1,0 +1,4 @@
+.tasks {
+  @apply flex flex-col mt-8 ml-28 mr-28;
+  height: 550px;
+}
