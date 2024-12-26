@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../styles/newNode.module.css";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ export function NewNode({ isNewNode, setIsNewNode }) {
     try {
       await axios.post("http://localhost:3000/tasks", {
         note,
+        checked: false,
       });
       setIsNewNode(false);
     } catch (error) {
