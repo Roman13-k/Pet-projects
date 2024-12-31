@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --checkbox-color: #f7f7f7;
+}
+
+.dark {
+  --checkbox-color: #252525;
+}
 *,
 *::after,
 *::before {
@@ -19,21 +26,17 @@ h2 {
 }
 button {
   background-color: #6c63ff;
-  cursor: url("./public/cursor.svg"), auto;
+  cursor: pointer;
 }
 button:active {
   background-color: #534cc2;
   transform: translateY(2px);
 }
-img {
-  cursor: url("./public/cursor.svg"), auto;
-}
-
 input {
+  @apply dark:bg-transparent;
   border: 1px solid #6c63ff;
   border-radius: 5px;
   padding: 8px 16px;
-  cursor: url("./public/cursor.svg"), auto;
 }
 input,
 input::placeholder {

@@ -1,0 +1,17 @@
+.task-enter {
+  transform: translateX(-20%);
+}
+.task-enter-active {
+  transform: translateX(0);
+  transition: transform 500ms ease-in;
+}
+.task-exit {
+  transform: translateX(0);
+}
+.task-exit-active {
+  transform: translateX(-20%);
+  transition: transform 500ms ease-in;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

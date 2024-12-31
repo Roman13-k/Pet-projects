@@ -1,11 +1,12 @@
 import { useState } from "react";
-import styles from "../styles/newNode.module.css";
 import axios from "axios";
 
 export function NewNode({ isNewNode, setIsNewNode }) {
   const [note, setNote] = useState("");
 
   const sendNote = async () => {
+    if (!note) return;
+
     try {
       await axios.post("http://localhost:3000/tasks", {
         note,
@@ -15,14 +16,17 @@ export function NewNode({ isNewNode, setIsNewNode }) {
     } catch (error) {
       console.log(error);
     }
+    setNote("");
   };
 
   return (
     <>
       {isNewNode && (
-        <div className={styles.newNode} onClick={() => setIsNewNode(false)}>
+        <div
+          className='absolute flex justify-center items-center w-screen min-h-screen z-10 bg-[rgba(37,37,37,0.7)]'
+          onClick={() => setIsNewNode(false)}>
           <div
-            className={styles.nodeContainer}
+            className='w-[500px] h-[289px] rounded-2xl border-1 border-white dark:bg-black bg-white text-center flex flex-col'
             onClick={(e) => e.stopPropagation()}>
             <h2 className='mt-4 mb-6'>New Note</h2>
             <input

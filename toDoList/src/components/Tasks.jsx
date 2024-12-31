@@ -1,19 +1,26 @@
+import React from "react";
 import { useEffect, useRef, useState } from "react";
-import styles from "../styles/tasks.module.css";
 import axios from "axios";
 import { Empty } from "./Empty";
-import { EditBtn } from "./EditBtn";
-import { useSetTasks, useUpgradeTasks } from "../hooks/useUpgradeTasks";
+import { TaskItem } from "./TaskItem";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "../styles/Tasks.css";
 
-export function Tasks({ tasks, setTasks, isNewNode }) {
+export function Tasks({ filteredTasks, setTasks, isNewNode, setUndoId }) {
   const [isChecked, setIsChecked] = useState({});
-  const [isEdit, setIsEdit] = useState(null);
-  const inputRefs = useRef({});
+
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         const response = await axios.get("http://localhost:3000/tasks");
-        setTasks(response.data);
+        const tasksData = response.data;
+
+        const initialChecked = tasksData.reduce((acc, task) => {
+          acc[task.id] = task.checked || false;
+          return acc;
+        }, {});
+        setTasks(tasksData);
+        setIsChecked(initialChecked);
       } catch (error) {
         console.log(error);
       }
@@ -22,59 +29,39 @@ export function Tasks({ tasks, setTasks, isNewNode }) {
     fetchTasks();
   }, [isNewNode, setTasks]);
 
-  const handleChecked = async (item, id) => {
-    const newChecked = !isChecked[id];
-    setIsChecked((prevState) => ({ ...prevState, [id]: newChecked }));
-    await useUpgradeTasks(id, { ...item, checked: newChecked });
-    useSetTasks(id, { checked: newChecked }, setTasks);
-  };
-
-  const handleBlur = async (item, id, newNode) => {
-    setIsEdit(!isEdit);
-    await useUpgradeTasks(id, { ...item, note: newNode });
-  };
-  const handleChange = (id, newValue) => {
-    useSetTasks(id, { note: newValue }, setTasks);
-  };
+  const nodeRefs = useRef({});
 
   return (
-    <section className={styles.tasks}>
-      {tasks.length == 0 ? (
+    <section className='flex flex-col mt-8 ml-28 mr-28 h-[450px] overflow-y-auto scrollbar-hide '>
+      {filteredTasks.length === 0 ? (
         <Empty />
       ) : (
-        <ul>
-          {tasks.map((item) => (
-            <li className='flex flex-col' key={item.id}>
-              <div className='flex items-center justify-between gap-6'>
-                <input
-                  className={styles.checkbox}
-                  type='checkbox'
-                  checked={isChecked[item.checked]}
-                  onChange={() => handleChecked(item, item.id)}
-                />
-                <input
-                  ref={(el) => (inputRefs.current[item.id] = el)}
-                  onChange={(e) => handleChange(item.id, e.target.value)}
-                  readOnly={isEdit != item.id}
-                  value={item.note}
-                  className={
-                    item.checked
-                      ? styles.note
-                      : "p-0 font-normal border-none min-w-96"
-                  }
-                  onBlur={() => handleBlur(item, item.id, item.note)}
-                />
-                <EditBtn
-                  id={item.id}
-                  setIsEdit={setIsEdit}
-                  setTasks={setTasks}
-                  inputRefs={inputRefs}
-                />
-              </div>
-              <span className='min-w-96 h-4 mb-5 border-b-1 border-purple opacity-50'></span>
-            </li>
-          ))}
-        </ul>
+        <TransitionGroup>
+          {filteredTasks.map((item) => {
+            if (!nodeRefs.current[item.id]) {
+              nodeRefs.current[item.id] = React.createRef();
+            }
+
+            return (
+              <CSSTransition
+                key={item.id}
+                timeout={500}
+                classNames='task'
+                nodeRef={nodeRefs.current[item.id]}>
+                <div ref={nodeRefs.current[item.id]}>
+                  <TaskItem
+                    item={item}
+                    filteredTasks={filteredTasks}
+                    setTasks={setTasks}
+                    setUndoId={setUndoId}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
+                  />
+                </div>
+              </CSSTransition>
+            );
+          })}
+        </TransitionGroup>
       )}
     </section>
   );

@@ -1,0 +1,16 @@
+.undo {
+  @apply flex items-center justify-between p-1 w-32 h-10 rounded-md mr-2 text-white font-thin;
+  box-shadow: 0 0 5px 0 #6c63ff;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform ease 0.8s;
+}
+
+.deleting {
+  opacity: 1;
+  transform: translateX(0);
+}
+.undo::after {
+  content: url("../../public/undo.svg");
+  margin-left: 7px;
+}

@@ -4,6 +4,9 @@ export default {
   darkMode: "selector",
   theme: {
     extend: {
+      boxShadow: {
+        custom: "0 0 5px 0 #6c63ff",
+      },
       colors: {
         black: "#252525",
         purple: " #6c63ff",
@@ -13,11 +16,11 @@ export default {
         kanit: ["Kanit", "ui-sans-serif", "system-ui"],
         inter: ["Inter", "ui-sans-serif", "system-ui"],
       },
-      cursor: { custom: 'url("/public/cursor.svg"), auto' },
+
       borderWidth: {
         1: "1px",
       },
     },
-    plugins: [],
+    plugins: [require("tailwind-scrollbar-hide")],
   },
 };
