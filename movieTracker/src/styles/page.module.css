@@ -1,0 +1,7 @@
+.page {
+  @apply border border-black cursor-pointer rounded-sm w-[55px] max-h-[40px] p-3 text-center m-[2px] transition-transform duration-200 hover:scale-110;
+}
+
+.cur_page {
+  @apply border-2 border-black cursor-pointer rounded-sm w-[55px] max-h-[40px] p-3 text-center m-[2px] transition-transform duration-200 hover:scale-110;
+}
