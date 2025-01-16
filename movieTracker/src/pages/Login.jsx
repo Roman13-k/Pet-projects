@@ -9,11 +9,10 @@ export function Login() {
   const handleSubmit = () => {
     setIsAuth(true);
     localStorage.setItem("auth", true);
-    console.log(localStorage.getItem("auth"));
   };
 
   return (
-    <div className='h-screen w-screen flex place-content-center'>
+    <div className=' flex place-content-center'>
       <div className='flex flex-col w-[390px] justify-center'>
         <h1 className='font-roboto font-semibold text-[90px] text-start max-w-60 text-shadow-lg ml-8 mb-10'>
           The Movie Tracker

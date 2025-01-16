@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function Register() {
   return (
-    <div className='h-screen w-screen flex place-content-center'>
+    <div className=' flex place-content-center'>
       <div className='flex flex-col w-[390px] justify-center'>
         <h1 className='font-roboto font-semibold text-[90px] text-start max-w-60 text-shadow-lg ml-8 mb-10'>
           The Movie Tracker
@@ -70,7 +70,7 @@ export function Register() {
             Register
           </Button>
           <p className='text-gray-500 mr-3 inline'>Already have an account?</p>
-          <Link className='text-gray-500 font-semibold' to='/login'>
+          <Link className='text-gray-500 font-semibold' to='/'>
             Login
           </Link>
         </form>

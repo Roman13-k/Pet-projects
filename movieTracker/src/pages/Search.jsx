@@ -26,7 +26,7 @@ export function Search() {
   }, [search, page]);
 
   return (
-    <div className='mb-10 mt-10 mr-16 ml-16'>
+    <div className=' bg-custom'>
       <p className='mb-6 text-sm'>
         Showing search results for:{" "}
         <span className='text-[#7d7d7d] text-lg'>{search}</span>

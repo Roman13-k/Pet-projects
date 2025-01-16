@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
       },
+      backgroundColor: {
+        custom: "#ebeaea",
+      },
       animation: {
         "bounce-custom": "bounce-custom 1s infinite",
       },

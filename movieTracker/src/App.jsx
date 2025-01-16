@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./router/router";
 import { useEffect, useState } from "react";
 import { Context } from "./context/context";
@@ -25,7 +25,6 @@ function App() {
                   key={route.path}
                   path={route.path}
                   element={route.element}
-                  exact={route.exact}
                 />
               ))
             : publicRoutes.map((route) => (
@@ -33,9 +32,9 @@ function App() {
                   key={route.path}
                   path={route.path}
                   element={route.element}
-                  exact={route.exact}
                 />
               ))}
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>

@@ -27,14 +27,15 @@ export function Header() {
     setInput("");
     setIsAuth(false);
     localStorage.removeItem("auth");
+    navigate("/");
   };
 
   return (
-    <header className='flex mb-10 mt-10 mr-16 ml-16'>
+    <header className='flex justify-between'>
       <h1 className='font-semibold text-4xl max-w-[130px]'>
         The Movie Tracker
       </h1>
-      <nav className='flex min-w-[900px] gap-5 items-center ml-20'>
+      <nav className='flex min-w-[900px] gap-5 items-center'>
         <Input
           classNames={{
             inputWrapper: ["bg-[#d9d9d9]", "min-h-[45px]", "max-w-[500px]"],
@@ -51,7 +52,7 @@ export function Header() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleSearchKey}
         />
-        <Link className='font-medium text-lg ' to={"/home"}>
+        <Link className='font-medium text-lg ' to={"/"}>
           Home
         </Link>
         <Link className='font-medium text-lg ' to={"/search"}>

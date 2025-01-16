@@ -5,7 +5,7 @@ export function Movies({ movies }) {
   const navigate = useNavigate();
 
   return (
-    <section className='flex flex-wrap'>
+    <section className='flex flex-wrap bg-custom'>
       {movies.results.map((movie) => (
         <div
           onClick={() => navigate(`/search/${movie.id}`)}
