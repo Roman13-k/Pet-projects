@@ -4,6 +4,8 @@ import { Register } from "../pages/Register";
 import { Search } from "../pages/Search";
 import { WatchList } from "../pages/WatchList";
 import { MovieId } from "../pages/MovieId";
+import Comments from "../pages/Comments";
+import { Recommendations } from "../pages/Recommendations";
 
 export const publicRoutes = [
   { path: "/", element: <Login /> },
@@ -15,4 +17,6 @@ export const privateRoutes = [
   { path: "/search", element: <Search /> },
   { path: "/watchlist", element: <WatchList /> },
   { path: "/search/:id", element: <MovieId /> },
+  { path: "/search/:id/comments", element: <Comments /> },
+  { path: "/search/:id/recommendations", element: <Recommendations /> },
 ];

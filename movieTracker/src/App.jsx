@@ -3,15 +3,20 @@ import { privateRoutes, publicRoutes } from "./router/router";
 import { useEffect, useState } from "react";
 import { Context } from "./context/context";
 import { Header } from "./components/Header";
+import { Loarding } from "./components/Loarding";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [movies, setMovies] = useState({ results: [] });
+  const [authLoading, setAuthLoading] = useState(true);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("auth")) setIsAuth(true);
+    setAuthLoading(false);
   }, []);
+
+  if (authLoading) return <Loarding />;
 
   return (
     <Context.Provider

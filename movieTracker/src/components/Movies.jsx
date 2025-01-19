@@ -10,7 +10,7 @@ export function Movies({ movies }) {
         <div
           onClick={() => navigate(`/search/${movie.id}`)}
           key={movie.id}
-          className='relative max-w-[160px] max-h-[240px] m-3 transition-transform duration-300 hover:scale-110'>
+          className='relative w-[160px] h-[240px] m-3 transition-transform duration-300 hover:scale-110'>
           <img
             className=' object-cover rounded-[20px] '
             src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}

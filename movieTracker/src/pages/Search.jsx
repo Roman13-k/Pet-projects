@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../context/context";
 import { Movies } from "../components/Movies";
-import { movieService } from "../services/movieService";
+import { getMovies } from "../services/moviesService";
 import { getPageArray } from "../utils/getPageArray";
 import { Loarding } from "../components/Loarding";
 import PagesArray from "../components/PagesArray";
@@ -16,7 +16,7 @@ export function Search() {
     async function fetchMovies() {
       setIsLoarding(true);
 
-      const data = await movieService(search, page);
+      const data = await getMovies(search, page);
       setMovies(data);
 
       setPagesArray(getPageArray(data.total_pages));
