@@ -1,0 +1,8 @@
+1. TanStack Query
+
+2. SortWatchList
+
+3. Home Page (Previously Watched, Popular, Top Rated, Upcoming)
+
+4. Comments
+

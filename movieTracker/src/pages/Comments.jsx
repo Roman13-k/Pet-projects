@@ -8,7 +8,6 @@ export default function Comments() {
   const [ComLoading, setComLoading] = useState(false);
   const [comments, setComments] = useState({ results: [] });
 
-  //кастом хук
   useEffect(() => {
     async function fetchComms() {
       setComLoading(true);

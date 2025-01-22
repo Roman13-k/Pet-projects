@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Button } from "@nextui-org/react";
 import { Loarding } from "../components/Loarding";
-import { WatchListIcon } from "../UI/WatchlistIcon";
 import { MovieCard } from "../components/MovieCard";
 import { MovieVideo } from "../components/MovieVideo";
 import { MovieRec } from "../components/MovieRec";
 import { getDetails, getRec, getVideos } from "../services/moviesService";
+import { MovieBtn } from "../components/MovieBtn";
 
 export function MovieId() {
   const [movie, setMovie] = useState({});
@@ -14,8 +13,6 @@ export function MovieId() {
   const [videos, setVideos] = useState({ results: [] });
   const [rec, setRec] = useState({ results: [] });
   const params = useParams();
-  const [isAdded, setIsAdded] = useState(false);
-  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     async function fetchDetails() {
@@ -32,13 +29,6 @@ export function MovieId() {
     }
     fetchDetails();
   }, [params]);
-  
-  //!!
-  const handleAdd = () => {
-    setIsAdded((prevState) => !prevState);
-    setWatchlist((prevState) => prevState.push(movie));
-    console.log(watchlist);
-  };
 
   if (isLoading) return <Loarding />;
 
@@ -46,12 +36,7 @@ export function MovieId() {
     <section className='mt-5'>
       <div className='flex justify-between mb-4'>
         <h2 className='font-bold text-3xl'>{movie.title}</h2>
-        <Button
-          onPress={() => handleAdd()}
-          className='cursor-pointer'
-          startContent={<WatchListIcon fill={isAdded ? "#32C75B" : "none"} />}>
-          {isAdded ? "Added" : "Add"} to Watchlist
-        </Button>
+        <MovieBtn movie={movie} />
       </div>
       <div className='flex gap-5'>
         <img

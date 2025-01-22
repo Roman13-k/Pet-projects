@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Context } from "./context/context";
 import { Header } from "./components/Header";
 import { Loarding } from "./components/Loarding";
+import { Error } from "./pages/Error";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -39,7 +40,7 @@ function App() {
                   element={route.element}
                 />
               ))}
-          <Route path='*' element={<Navigate to='/' />} />
+          <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>
