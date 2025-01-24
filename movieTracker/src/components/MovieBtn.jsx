@@ -1,41 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { WatchListIcon } from "../UI/WatchlistIcon";
 import { Button } from "@nextui-org/react";
-import axios from "axios";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { watchListService } from "../services/watchlist.service";
 
 export function MovieBtn({ movie }) {
-  const [isAdded, setIsAdded] = useState(false);
+  const queryClient = useQueryClient();
+  const { data: isAdded } = useQuery({
+    queryKey: ["watchlist", movie.id],
+    queryFn: () => watchListService.getMovieById(movie.id),
+    initialData: false,
+  });
 
-  useEffect(() => {
-    async function fetchWatchlistStatus() {
-      try {
-        const responce = await axios.get(
-          `http://localhost:3000/watchlist/${movie.id}`,
-        );
-        setIsAdded(responce.status == 200);
-      } catch {
-        setIsAdded(false);
-      }
-    }
-    fetchWatchlistStatus();
-  }, []);
+  const addToWatchList = useMutation({
+    mutationFn: () => watchListService.postToWatchList(movie.id, movie),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["watchlist", movie.id]);
+    },
+  });
+  const deleteFromWatchList = useMutation({
+    mutationFn: () => watchListService.deleteFromWatchList(movie.id),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["watchlist", movie.id]);
+    },
+  });
 
   const handleTogleWhatchlist = async () => {
-    setIsAdded((prevState) => !prevState);
-
-    if (isAdded) {
-      await axios.delete(`http://localhost:3000/watchlist/${movie.id}`);
-    } else {
-      await axios.post("http://localhost:3000/watchlist", {
-        id: String(movie.id),
-        movie,
-      });
-    }
+    if (isAdded) deleteFromWatchList.mutate();
+    else addToWatchList.mutate();
   };
 
   return (
     <Button
-      onPress={() => handleTogleWhatchlist()}
+      onPress={() => handleTogleWhatchlist}
       className='cursor-pointer'
       startContent={<WatchListIcon fill={isAdded ? "#32C75B" : "none"} />}>
       {isAdded ? "Added" : "Add"} to Watchlist

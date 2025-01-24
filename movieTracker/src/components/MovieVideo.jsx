@@ -7,12 +7,13 @@ export function MovieVideo({ videos }) {
     return <p>video unavailable</p>;
   }
 
+  const videoURL = `https://www.youtube.com/embed/${trailer}`;
   return (
     <iframe
       className='rounded-[20px] ml-auto'
       width='480'
       height='280'
-      src={`https://www.youtube.com/embed/${trailer}`}
+      src={videoURL}
       allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
       allowFullScreen></iframe>
   );

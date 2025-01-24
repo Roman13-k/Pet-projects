@@ -1,4 +1,141 @@
 {
+  "prevWatched": [
+    {
+      "id": "939243",
+      "movie": {
+        "adult": false,
+        "backdrop_path": "/b85bJfrTOSJ7M5Ox0yp4lxIxdG1.jpg",
+        "belongs_to_collection": {
+          "id": 720879,
+          "name": "Sonic the Hedgehog Collection",
+          "poster_path": "/fwFWhYXj8wY6gFACtecJbg229FI.jpg",
+          "backdrop_path": "/l5CIAdxVhhaUD3DaS4lP4AR2so9.jpg"
+        },
+        "budget": 122000000,
+        "genres": [
+          {
+            "id": 28,
+            "name": "Action"
+          },
+          {
+            "id": 878,
+            "name": "Science Fiction"
+          },
+          {
+            "id": 35,
+            "name": "Comedy"
+          },
+          {
+            "id": 10751,
+            "name": "Family"
+          }
+        ],
+        "homepage": "https://www.sonicthehedgehogmovie.com",
+        "id": 939243,
+        "imdb_id": "tt18259086",
+        "origin_country": ["US"],
+        "original_language": "en",
+        "original_title": "Sonic the Hedgehog 3",
+        "overview": "Sonic, Knuckles, and Tails reunite against a powerful new adversary, Shadow, a mysterious villain with powers unlike anything they have faced before. With their abilities outmatched in every way, Team Sonic must seek out an unlikely alliance in hopes of stopping Shadow and protecting the planet.",
+        "popularity": 6277.745,
+        "poster_path": "/d8Ryb8AunYAuycVKDp5HpdWPKgC.jpg",
+        "production_companies": [
+          {
+            "id": 4,
+            "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+            "name": "Paramount Pictures",
+            "origin_country": "US"
+          },
+          {
+            "id": 333,
+            "logo_path": "/5xUJfzPZ8jWJUDzYtIeuPO4qPIa.png",
+            "name": "Original Film",
+            "origin_country": "US"
+          },
+          {
+            "id": 77884,
+            "logo_path": "/dP2lxVNctD5Cried0IWVqgrO2o9.png",
+            "name": "Marza Animation Planet",
+            "origin_country": "JP"
+          },
+          {
+            "id": 113750,
+            "logo_path": "/A3QVZ9Ah0yI2d2GiXUFpdlbTgyr.png",
+            "name": "SEGA",
+            "origin_country": "JP"
+          },
+          {
+            "id": 10644,
+            "logo_path": "/ocLZIdYJBppuCt1rhYEb2jbpt5F.png",
+            "name": "Blur Studio",
+            "origin_country": "US"
+          },
+          {
+            "id": 168701,
+            "logo_path": "/vWdZFT4V64CCv12D10m44duQjyg.png",
+            "name": "SEGA of America",
+            "origin_country": "US"
+          }
+        ],
+        "production_countries": [
+          {
+            "iso_3166_1": "JP",
+            "name": "Japan"
+          },
+          {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+          }
+        ],
+        "release_date": "2024-12-19",
+        "revenue": 422398000,
+        "runtime": 110,
+        "spoken_languages": [
+          {
+            "english_name": "German",
+            "iso_639_1": "de",
+            "name": "Deutsch"
+          },
+          {
+            "english_name": "Spanish",
+            "iso_639_1": "es",
+            "name": "Español"
+          },
+          {
+            "english_name": "French",
+            "iso_639_1": "fr",
+            "name": "Français"
+          },
+          {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+          },
+          {
+            "english_name": "Japanese",
+            "iso_639_1": "ja",
+            "name": "日本語"
+          },
+          {
+            "english_name": "Letzeburgesch",
+            "iso_639_1": "lb",
+            "name": ""
+          },
+          {
+            "english_name": "Malagasy",
+            "iso_639_1": "mg",
+            "name": ""
+          }
+        ],
+        "status": "Released",
+        "tagline": "Try to keep up.",
+        "title": "Sonic the Hedgehog 3",
+        "video": false,
+        "vote_average": 7.8,
+        "vote_count": 884
+      }
+    }
+  ],
   "watchlist": [
     {
       "id": "140607",
@@ -29,9 +166,7 @@
         "homepage": "http://www.starwars.com/films/star-wars-episode-vii",
         "id": 140607,
         "imdb_id": "tt2488496",
-        "origin_country": [
-          "US"
-        ],
+        "origin_country": ["US"],
         "original_language": "en",
         "original_title": "Star Wars: The Force Awakens",
         "overview": "Thirty years after defeating the Galactic Empire, Han Solo and his allies face a new threat from the evil Kylo Ren and his army of Stormtroopers.",
@@ -99,9 +234,7 @@
         "homepage": "https://www.20thcenturystudios.com/movies/the-martian",
         "id": 286217,
         "imdb_id": "tt3659388",
-        "origin_country": [
-          "US"
-        ],
+        "origin_country": ["US"],
         "original_language": "en",
         "original_title": "The Martian",
         "overview": "During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth that he is alive.",
@@ -163,135 +296,6 @@
       }
     },
     {
-      "id": "281957",
-      "movie": {
-        "adult": false,
-        "backdrop_path": "/sGOw65ZmfgGfistCjuNsazjs6j9.jpg",
-        "belongs_to_collection": null,
-        "budget": 135000000,
-        "genres": [
-          {
-            "id": 37,
-            "name": "Western"
-          },
-          {
-            "id": 18,
-            "name": "Drama"
-          },
-          {
-            "id": 12,
-            "name": "Adventure"
-          }
-        ],
-        "homepage": "https://www.foxmovies.com/movies/the-revenant",
-        "id": 281957,
-        "imdb_id": "tt1663202",
-        "origin_country": [
-          "US"
-        ],
-        "original_language": "en",
-        "original_title": "The Revenant",
-        "overview": "In the 1820s, a frontiersman, Hugh Glass, sets out on a path of vengeance against those who left him for dead after a bear mauling.",
-        "popularity": 77.835,
-        "poster_path": "/ji3ecJphATlVgWNY0B0RVXZizdf.jpg",
-        "production_companies": [
-          {
-            "id": 77845,
-            "logo_path": null,
-            "name": "Monarchy Enterprises S.a.r.l.",
-            "origin_country": ""
-          },
-          {
-            "id": 508,
-            "logo_path": "/7cxRWzi4LsVm4Utfpr1hfARNurT.png",
-            "name": "Regency Enterprises",
-            "origin_country": "US"
-          },
-          {
-            "id": 562,
-            "logo_path": "/azANEzu3H3Kztzt63sdjvlzxhuB.png",
-            "name": "Appian Way",
-            "origin_country": "US"
-          },
-          {
-            "id": 8870,
-            "logo_path": "/f2hj6ssc0KBRSafGnycnN5A1aGF.png",
-            "name": "CatchPlay",
-            "origin_country": "TW"
-          },
-          {
-            "id": 10039,
-            "logo_path": "/b8w4LldQolMKiLZw4FQJBcXSDGI.png",
-            "name": "Anonymous Content",
-            "origin_country": "US"
-          },
-          {
-            "id": 10104,
-            "logo_path": "/wRn5HnYMGeJHmItRypgOZOC6gwY.png",
-            "name": "New Regency Pictures",
-            "origin_country": "US"
-          },
-          {
-            "id": 13796,
-            "logo_path": null,
-            "name": "Hong Kong Alpha Motion Pictures Co.",
-            "origin_country": "HK"
-          },
-          {
-            "id": 52660,
-            "logo_path": null,
-            "name": "M Productions",
-            "origin_country": ""
-          },
-          {
-            "id": 41624,
-            "logo_path": "/wzKxIeQKlMP0y5CaAw25MD6EQmf.png",
-            "name": "RatPac Entertainment",
-            "origin_country": "US"
-          }
-        ],
-        "production_countries": [
-          {
-            "iso_3166_1": "CA",
-            "name": "Canada"
-          },
-          {
-            "iso_3166_1": "HK",
-            "name": "Hong Kong"
-          },
-          {
-            "iso_3166_1": "TW",
-            "name": "Taiwan"
-          },
-          {
-            "iso_3166_1": "US",
-            "name": "United States of America"
-          }
-        ],
-        "release_date": "2015-12-25",
-        "revenue": 532950503,
-        "runtime": 157,
-        "spoken_languages": [
-          {
-            "english_name": "English",
-            "iso_639_1": "en",
-            "name": "English"
-          },
-          {
-            "english_name": "French",
-            "iso_639_1": "fr",
-            "name": "Français"
-          }
-        ],
-        "status": "Released",
-        "tagline": "Revenge proves its own executioner.",
-        "title": "The Revenant",
-        "video": false,
-        "vote_average": 7.5,
-        "vote_count": 18178
-      }
-    },
-    {
       "id": "11",
       "movie": {
         "adult": false,
@@ -320,9 +324,7 @@
         "homepage": "http://www.starwars.com/films/star-wars-episode-iv-a-new-hope",
         "id": 11,
         "imdb_id": "tt0076759",
-        "origin_country": [
-          "US"
-        ],
+        "origin_country": ["US"],
         "original_language": "en",
         "original_title": "Star Wars",
         "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
@@ -395,9 +397,7 @@
         "homepage": "http://www.starwars.com/films/star-wars-episode-v-the-empire-strikes-back",
         "id": 1891,
         "imdb_id": "tt0080684",
-        "origin_country": [
-          "US"
-        ],
+        "origin_country": ["US"],
         "original_language": "en",
         "original_title": "The Empire Strikes Back",
         "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.",
@@ -433,6 +433,73 @@
         "video": false,
         "vote_average": 8.4,
         "vote_count": 17100
+      }
+    },
+    {
+      "id": "348350",
+      "movie": {
+        "adult": false,
+        "backdrop_path": "/ojHCeDULAkQK25700fhRU75Tur2.jpg",
+        "belongs_to_collection": {
+          "id": 1415515,
+          "name": "A Star Wars Story collection",
+          "poster_path": "/qMKxr4voJXorZRmptlD0KL6GIYx.jpg",
+          "backdrop_path": null
+        },
+        "budget": 250000000,
+        "genres": [
+          {
+            "id": 878,
+            "name": "Science Fiction"
+          },
+          {
+            "id": 12,
+            "name": "Adventure"
+          },
+          {
+            "id": 28,
+            "name": "Action"
+          }
+        ],
+        "homepage": "https://www.starwars.com/films/solo",
+        "id": 348350,
+        "imdb_id": "tt3778644",
+        "origin_country": ["US"],
+        "original_language": "en",
+        "original_title": "Solo: A Star Wars Story",
+        "overview": "Through a series of daring escapades deep within a dark and dangerous criminal underworld, Han Solo meets his mighty future copilot Chewbacca and encounters the notorious gambler Lando Calrissian.",
+        "popularity": 35.071,
+        "poster_path": "/4oD6VEccFkorEBTEDXtpLAaz0Rl.jpg",
+        "production_companies": [
+          {
+            "id": 1,
+            "logo_path": "/tlVSws0RvvtPBwViUyOFAO0vcQS.png",
+            "name": "Lucasfilm Ltd.",
+            "origin_country": "US"
+          }
+        ],
+        "production_countries": [
+          {
+            "iso_3166_1": "US",
+            "name": "United States of America"
+          }
+        ],
+        "release_date": "2018-05-15",
+        "revenue": 392952373,
+        "runtime": 135,
+        "spoken_languages": [
+          {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+          }
+        ],
+        "status": "Released",
+        "tagline": "Never tell him the odds.",
+        "title": "Solo: A Star Wars Story",
+        "video": false,
+        "vote_average": 6.6,
+        "vote_count": 8590
       }
     }
   ]
