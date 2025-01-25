@@ -1,8 +1,0 @@
-1. TanStack Query (MovieService)
-
-2. SortWatchList // Y //
-
-3. Home Page (Previously Watched, SeeAll(UseOberver))
-
-4. Comments // Y //
-

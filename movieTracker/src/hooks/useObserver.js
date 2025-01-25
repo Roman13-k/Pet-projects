@@ -7,7 +7,7 @@ export const useObserver = (ref, callback, isLoading, canLoad) => {
     if (observer.current) observer.current.disconnect();
 
     const cb = (entries, observer) => {
-      if (entries[0].isIntersecting && canLoad) {
+      if (entries[0].isIntersecting) {
         callback();
       }
     };

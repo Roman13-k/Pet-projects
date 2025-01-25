@@ -23,12 +23,12 @@ class HomeService {
   }
 
   async getPrevWatched() {
-    const respose = await axios.get("http://localhost:3000/prevWatched");
+    const respose = await axios.get("http://localhost:5000/prevWatched");
     return respose.data;
   }
 
   async postPrevWatched(id, movie) {
-    await axios.post("http://localhost:3000/prevWatched", {
+    await axios.post("http://localhost:5000/prevWatched", {
       id: String(id),
       movie: movie,
     });

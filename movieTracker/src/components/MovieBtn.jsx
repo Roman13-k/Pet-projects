@@ -32,7 +32,7 @@ export function MovieBtn({ movie }) {
 
   return (
     <Button
-      onPress={() => handleTogleWhatchlist}
+      onPress={() => handleTogleWhatchlist()}
       className='cursor-pointer'
       startContent={<WatchListIcon fill={isAdded ? "#32C75B" : "none"} />}>
       {isAdded ? "Added" : "Add"} to Watchlist

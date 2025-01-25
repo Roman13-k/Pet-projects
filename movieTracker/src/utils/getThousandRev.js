@@ -1,3 +1,3 @@
 export function getThousandRev(total_reviews) {
-  return Math.floor(total_reviews / 1000);
+  return Math.ceil(total_reviews / 1000);
 }

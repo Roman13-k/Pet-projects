@@ -6,7 +6,7 @@ import { UserIcon } from "../UI/UserIcon";
 import { SearchIcon } from "../UI/SearchIcon";
 
 export function Header() {
-  const { setIsAuth, setSearch, setMovies } = useContext(Context);
+  const { setIsAuth, setSearch } = useContext(Context);
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +23,6 @@ export function Header() {
     }
   };
   const handleExit = () => {
-    setMovies({ results: [] });
     setInput("");
     setIsAuth(false);
     localStorage.removeItem("auth");

@@ -1,47 +1,31 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getRec } from "../services/moviesService";
 import { Loarding } from "../components/Loarding";
 import { useObserver } from "../hooks/useObserver";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { movieService } from "../services/movie.service";
 
 export function Recommendations() {
-  const [recLoading, setRecLoading] = useState(false);
-  const [allRec, setAllRec] = useState({ results: [] });
-  const [page, setPage] = useState(1);
   const params = useParams();
   const navigate = useNavigate();
   const lastElement = useRef(null);
 
-  useEffect(() => {
-    async function fetchAllRec() {
-      setRecLoading(true);
-      const data = await getRec(params, page);
-      setAllRec((prevState) => {
-        if (page == 1) {
-          return data;
-        }
-        return {
-          ...data,
-          results: [...prevState.results, ...data.results],
-        };
-      });
-      setRecLoading(false);
-    }
-    fetchAllRec();
-  }, [page]);
+  const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
+    useInfiniteQuery({
+      queryKey: ["rec", params],
+      queryFn: ({ pageParam = 1 }) => movieService.getRec(params, pageParam),
+      getNextPageParam: (lastPage) =>
+        lastPage.page <= lastPage.total_pages ? lastPage.page + 1 : false,
+    });
+  const allRec = data?.pages.flatMap((page) => page.results) || [];
 
-  useObserver(
-    lastElement,
-    () => setPage(page + 1),
-    recLoading,
-    page < allRec.total_pages,
-  );
+  useObserver(lastElement, fetchNextPage, isFetchingNextPage, hasNextPage);
 
   return (
     <>
       <h2 className='font-bold text-3xl mt-5'>Recommendations:</h2>
       <ul className='flex flex-wrap mb-20'>
-        {allRec.results?.map((allR) => {
+        {allRec.map((allR) => {
           return (
             <li
               onClick={() => navigate(`/search/${allR.id}`)}
@@ -59,7 +43,7 @@ export function Recommendations() {
           );
         })}
       </ul>
-      {recLoading && <Loarding />}
+      {isLoading && <Loarding />}
       <div ref={lastElement} className='h-5 w-full mt-20' />
     </>
   );

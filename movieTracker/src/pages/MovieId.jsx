@@ -4,42 +4,39 @@ import { Loarding } from "../components/Loarding";
 import { MovieCard } from "../components/MovieCard";
 import { MovieVideo } from "../components/MovieVideo";
 import { MovieRec } from "../components/MovieRec";
-import { getDetails, getRec, getVideos } from "../services/moviesService";
+import { movieService } from "../services/movie.service";
 import { MovieBtn } from "../components/MovieBtn";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { homeService } from "../services/homepage.service";
 
 export function MovieId() {
-  const [movie, setMovie] = useState({});
-  const [isLoading, setIsLoarding] = useState(false);
-  const [videos, setVideos] = useState({ results: [] });
-  const [rec, setRec] = useState({ results: [] });
   const params = useParams();
+
+  const { data: movie, isLoading: isMovieLoading } = useQuery({
+    queryKey: ["movie", params],
+    queryFn: () => movieService.getDetails(params),
+  });
+  const { data: videos, isLoading: isVideosLoading } = useQuery({
+    queryKey: ["videos", params],
+    queryFn: () => movieService.getVideos(params),
+  });
+  const { data: rec, isLoading: isRecLoading } = useQuery({
+    queryKey: ["recommendations", params],
+    queryFn: () => movieService.getRec(params),
+  });
 
   const queryClient = useQueryClient();
   const postPrevWatched = useMutation({
     mutationFn: () => homeService.postPrevWatched(movie.id, movie),
     onSuccess: () => queryClient.invalidateQueries(["prevWatched", movie.id]),
   });
-
   useEffect(() => {
-    async function fetchDetails() {
-      setIsLoarding(true);
-      const data = await getDetails(params);
-      setMovie(data);
-
-      const video = await getVideos(params);
-      setVideos(video);
-
-      const recommendations = await getRec(params);
-      setRec(recommendations);
-
+    if (movie) {
       postPrevWatched.mutate();
-      setIsLoarding(false);
     }
-    fetchDetails();
-  }, [params]);
+  }, [movie]);
 
+  const isLoading = isMovieLoading || isVideosLoading || isRecLoading;
   if (isLoading) return <Loarding />;
 
   return (

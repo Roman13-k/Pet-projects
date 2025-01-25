@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "./router/router";
 import { useEffect, useState } from "react";
 import { Context } from "./context/context";
@@ -8,7 +8,6 @@ import { Error } from "./pages/Error";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const [movies, setMovies] = useState({ results: [] });
   const [authLoading, setAuthLoading] = useState(true);
   const [search, setSearch] = useState("");
 
@@ -20,8 +19,7 @@ function App() {
   if (authLoading) return <Loarding />;
 
   return (
-    <Context.Provider
-      value={{ isAuth, setIsAuth, movies, setMovies, search, setSearch }}>
+    <Context.Provider value={{ isAuth, setIsAuth, search, setSearch }}>
       <BrowserRouter>
         {isAuth ? <Header /> : ""}
         <Routes>

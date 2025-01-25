@@ -1,29 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../context/context";
 import { Movies } from "../components/Movies";
-import { getMovies } from "../services/moviesService";
 import { getPageArray } from "../utils/getPageArray";
 import { Loarding } from "../components/Loarding";
 import PagesArray from "../components/PagesArray";
+import { useQuery } from "@tanstack/react-query";
+import { movieService } from "../services/movie.service";
 
 export function Search() {
-  const { search, movies, setMovies } = useContext(Context);
+  const { search } = useContext(Context);
   const [page, setPage] = useState(1);
   const [pagesArray, setPagesArray] = useState([]);
-  const [isLoading, setIsLoarding] = useState(false);
 
-  useEffect(() => {
-    async function fetchMovies() {
-      setIsLoarding(true);
-
-      const data = await getMovies(search, page);
-      setMovies(data);
-
-      setPagesArray(getPageArray(data.total_pages));
-      setIsLoarding(false);
-    }
-    fetchMovies();
-  }, [search, page]);
+  const { data: movies, isLoading } = useQuery({
+    queryKey: ["movies", search, page],
+    queryFn: () => movieService.getMovies(search, page),
+  });
+  useEffect(() => setPagesArray(getPageArray(movies?.total_pages)), [movies]);
 
   return (
     <div className=' bg-custom'>
