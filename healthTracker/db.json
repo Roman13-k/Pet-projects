@@ -5,5 +5,78 @@
     "Water": 3.5,
     "Sleep": 40
   },
-  "rezults": []
+  "rezults": [
+    {
+      "indicators": {
+        "Steps": "1200",
+        "Calories": "700",
+        "Water": "3",
+        "Sleep": "8"
+      },
+      "id": "2025-02-04"
+    },
+    {
+      "indicators": {
+        "Steps": "2345",
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      },
+      "id": "2025-02-09"
+    },
+    {
+      "indicators": {
+        "Steps": "7000",
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      },
+      "id": "2025-02-06"
+    },
+    {
+      "id": "2025-02-28",
+      "indicators": {
+        "Steps": 0,
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      }
+    },
+    {
+      "indicators": {
+        "Steps": "900",
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      },
+      "id": "2025-02-05"
+    },
+    {
+      "indicators": {
+        "Steps": "700",
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      },
+      "id": "2025-02-03"
+    },
+    {
+      "indicators": {
+        "Steps": "2000",
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      },
+      "id": "2025-02-07"
+    },
+    {
+      "id": "2025-02-08",
+      "indicators": {
+        "Steps": 0,
+        "Calories": 0,
+        "Water": 0,
+        "Sleep": 0
+      }
+    }
+  ]
 }

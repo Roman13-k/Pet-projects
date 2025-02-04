@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { getCurDate } from "../utils/getCurDate";
+import React, { useContext } from "react";
 import { Goals } from "./Goals";
+import { Context } from "../context/context";
 
 export function Aside() {
-  const [date, setDate] = useState(getCurDate());
+  const { date, setDate } = useContext(Context);
 
   const handleChange = (e) => {
     setDate(e.target.value);
